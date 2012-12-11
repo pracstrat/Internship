@@ -25,8 +25,8 @@ def display(numbers)
 		NUMBERS[number].each do |x|#bianli NUMBER
 			puts CHARS[x]
 		end
-					
+
 	end
-	
+
 end
 display(ARGV[0]) #canshu to ARGB and diaoyong display 
