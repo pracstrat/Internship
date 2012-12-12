@@ -29,7 +29,7 @@ class Lcd
                 puts CHARS[x]
             end
     end
- end
+ endr
 
 end
 lcd  = Lcd.new(ARGV[0])
