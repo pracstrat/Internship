@@ -23,8 +23,8 @@ class Lcd
 		'8' => [:b,:e,:b,:e,:b],
 		'9' => [:b,:e,:b,:d,:b],
 	}
-
-	def display
+	#vertocally diplaying the lcd digits
+	def display_vertical
 
 		numbers.each_char do |number|
 			NUMBER[number].each do |x|
@@ -32,9 +32,26 @@ class Lcd
 			end
 		end
 	end
+
+	def display2
+
+		p CHARS[NUMBER['0'][0]]
+	end
+	#horizontally diplaying the lcd digits
+	def display_horizontal
+		tem=""
+		[0,1,2,3,4].each do |x| numbers.each_char do |number|
+			tem<<CHARS[NUMBER[number][x]]
+		end
+		puts tem
+		tem=""
+		end
+
+		
+	end
 end
 lcd = Lcd.new(ARGV[0])
-lcd.display
+lcd.display_horizontal
 
-puts "asdf"
-puts "bbb"
+
+
