@@ -1,8 +1,4 @@
 class Lcd
-	attr_accessor :numbers
-	def initialize(numbers)
-		@numbers = numbers
-	end
 	CHARS={
 		a: "    ",
 		b: " -- ",
@@ -23,31 +19,23 @@ class Lcd
 		'8' => [:b,:e,:b,:e,:b],
 		'9' => [:b,:e,:b,:d,:b],
 	}
+	attr_accessor :numbers
+	
+	def initialize(numbers)
+		@numbers = numbers
+	end
 	#vertocally diplaying the lcd digits
 	def display_vertical
-
-		numbers.each_char do |number|
-			NUMBER[number].each do |x|
-				puts CHARS[x]
-			end
+		numbers.to_s.split('').collect{|number| NUMBER[number]}.each do |elems|
+			elems.each{|elem| puts CHARS[elem]}
 		end
 	end
 
-	def display2
-
-		p CHARS[NUMBER['0'][0]]
-	end
 	#horizontally diplaying the lcd digits
 	def display_horizontal
-		tem=""
-		[0,1,2,3,4].each do |x| numbers.each_char do |number|
-			tem<<CHARS[NUMBER[number][x]]
-		end
-		puts tem
-		tem=""
-		end
-
-		
+		numbers.to_s.split('').collect{|number| NUMBER[number]}.transpose.each do |elems|
+			puts elems.collect{|elem| CHARS[elem]}.join(' ')
+		end		
 	end
 end
 lcd = Lcd.new(ARGV[0])
