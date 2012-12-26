@@ -26,20 +26,46 @@ class Lcd
 	end
 	#vertocally diplaying the lcd digits
 	def display_vertical
-		numbers.to_s.split('').collect{|number| NUMBER[number]}.each do |elems|
+		@numbers.to_s.split('').collect{|number| NUMBER[number]}.each do |elems|
 			elems.each{|elem| puts CHARS[elem]}
 		end
 	end
 
 	#horizontally diplaying the lcd digits
-	def display_horizontal
-		numbers.to_s.split('').collect{|number| NUMBER[number]}.transpose.each do |elems|
-			puts elems.collect{|elem| CHARS[elem]}.join(' ')
-		end		
-	end
-end
-lcd = Lcd.new(ARGV[0])
-lcd.display_horizontal
+	# def display_horizontal
+	# 	@numbers.to_s.split('').collect{|number| NUMBER[number]}.transpose.each do |elems|
+	# 		puts elems.collect{|elem| CHARS[elem]}.join(' ')
+	# 	end		
+	# end
 
+	def display_horizontal
+		@numbers.to_s.split('').collect{|number| NUMBER[number]}.each{
+			|elems| elems.each{
+				|elem|
+				puts CHARS[elem]
+			}
+		} 
+	end
+
+end
+
+
+
+
+describe "lcd TEST" do
+
+	it "put the ARGV" do
+		lcd = Lcd.new(123)
+		lcd.numbers.to_s.should == "123"
+
+	end
+
+	it "put the ARGV" do
+
+	end
+
+
+
+end
 
 
