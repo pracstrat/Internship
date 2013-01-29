@@ -32,6 +32,7 @@ describe Transfer do
 
       title.content.should eq "AGING, Texas Department on"
       link.attributes["url"].value.should eq "/texreg/transfers/aging091004.html"
+      link.inner_html.should eq "Rule \n      Transfer effective September 1, 2004"
     end
 
     it "should return the numbers of rule " do
